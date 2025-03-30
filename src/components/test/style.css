@@ -1,0 +1,57 @@
+body{
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    top: 200px;
+    background-color: black;
+}
+
+.outer{
+    position: relative;
+    background-color: wheat;
+    width: 300px;
+    aspect-ratio: 1;
+}
+
+.inner{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: black;
+    clip-path: circle(20px);
+    cursor: pointer;
+}
+
+.inner.animate{
+    animation: circle_large 1s ease-out forwards;
+}
+
+.inner.rev_animate{
+    animation: circle_shrink 1s ease-in  forwards;
+}
+
+@keyframes circle_large {
+    from{
+        clip-path: circle(20px);
+    }
+    to{
+        clip-path: circle(100%);
+    }
+}
+@keyframes circle_shrink {
+    from{
+        clip-path: circle(100%);
+    }
+    to{
+        clip-path: circle(20px);
+    }
+}
+
+button{
+    width: 120px;
+    height: 40px;
+    font-size: large;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

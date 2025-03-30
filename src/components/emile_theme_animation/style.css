@@ -1,0 +1,113 @@
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: black;
+    top: 200px;
+    font-family: sans-serif;
+}
+
+/* Apply consistent box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+.outer_container {
+    position: relative;
+    width: 50%;
+    min-height: 200px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.355);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.inner_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.355);
+    color: white;
+    /* Match the exact padding of the outer container */
+    padding: 20px;
+    clip-path: inset(100% 0 0 0);
+    pointer-events: none;
+}
+
+.inner_container.visible {
+    clip-path: inset(0 0 0 0);
+    pointer-events: auto;
+}
+
+@keyframes shutterReveal {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes shutterHide {
+    0% {
+        clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+.inner_container.visible {
+    animation: shutterReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.inner_container.hiding {
+    animation: shutterHide 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+button {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: medium;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+    border: none;
+}
+
+.parent_button {
+    background-color: black;
+    color: white;
+}
+
+.child_button {
+    background-color: white;
+    color: black;
+}
+
+h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: large;
+    font-weight: normal;
+    line-height: 1.6rem;
+}
